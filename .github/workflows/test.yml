@@ -1,0 +1,25 @@
+name: Test Workflow
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run test
+        run: echo "Test workflow is running successfully!"
+      
+      - name: Display system information
+        run: |
+          echo "Operating System: $(uname -s)"
+          echo "Kernel Version: $(uname -r)"
+          echo "Architecture: $(uname -m)"
